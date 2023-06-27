@@ -14,7 +14,7 @@ st.header('Генератор упражнений по английскому')
 '---'
 
 for task in tasks:
-    st.subheader(st.write(str(task['description'])))
+    st.subheader(str(task['description']))
     col1, col2 = st.columns(2)
     with col1:
         st.write('')
