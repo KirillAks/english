@@ -13,14 +13,16 @@ st.write(tasks)
 st.header('Генератор упражнений по английскому')
 
 '---'
-def load_data():
-    df = pd.read_csv('little_red_cap.csv')
-    return df
+# def load_data():
+#     df = pd.read_csv('little_red_cap.csv')
+#     return df
 
-df = load_data() 
-st.write(df)
+# df = load_data() 
+# st.write(df)
 
-# for task in tasks:
+for task in tasks:
+    st.write('')
+    st.write(str(task['description']))
     
 #     col1, col2 = st.columns(2)
 #     with col1:
