@@ -29,7 +29,7 @@ for i, row in tasks.iterrows():
             (['None'].extend(opt)),
             label_visibility="hidden",
         )
-         st.write('You selected:', option)
+        st.write('You selected:', option)
 #         for i in range(len(row['options'])):
 #             opt = row['options'][i]
 #             option = st.selectbox(
