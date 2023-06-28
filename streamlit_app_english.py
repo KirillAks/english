@@ -25,7 +25,12 @@ for i, row in tasks.iterrows():
     with col2:
         for i in range(len(row['options'])):
             opt = row['options'][i]
-            option = st.selectbox('nolabel', ['–––'].extend(opt), label_visibility="hidden")
+            option = st.selectbox(
+                'nolabel',
+                (['None'].extend(opt)),
+                label_visibility="hidden",
+            )
+            
             st.write('You selected:', option)
 #             row['result'][i] = st.selectbox('nolabel', 
 #                                              ['–––'].extend(option), 
