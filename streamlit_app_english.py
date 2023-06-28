@@ -25,11 +25,11 @@ for i, row in tasks.iterrows():
     with col2:
         opt = str(row['options'])
         opt
-#         option = st.selectbox(
-#             'nolabel',
-#             (opt),
-#             label_visibility="hidden",
-#         )
+        option = st.selectbox(
+            'nolabel',
+            (opt),
+            label_visibility="hidden",
+        )
 #         st.write('You selected:', option)
 #         for i in range(len(row['options'])):
 #             opt = row['options'][i]
