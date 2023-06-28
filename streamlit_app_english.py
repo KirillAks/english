@@ -8,7 +8,7 @@ import pandas as pd
 import streamlit as st
 
 tasks = pd.read_csv('little_red_cap.csv')
-st.write(tasks)
+tasks
 
 st.header('Генератор упражнений по английскому')
 
@@ -21,8 +21,7 @@ st.header('Генератор упражнений по английскому')
 # st.write(df)
 
 for task in tasks:
-    st.write('')
-    st.write(str(task['description']))
+    task['description']
     
 #     col1, col2 = st.columns(2)
 #     with col1:
