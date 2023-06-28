@@ -25,22 +25,23 @@ for i, row in tasks.iterrows():
     with col2:
         for i in range(len(row['options'])):
             option = row['options'][i]
-            row['result'][i] = st.selectbox('nolabel', 
-                                             ['–––'].extend(option), 
-                                             label_visibility="hidden")
-            if row['result'][i] == '–––':
-                pass
-            elif row['result'][i] == row['answers'][i]:
-                st.success('', icon="✅")
-            else:
-                st.error('', icon="😟")
-    row['total'] = row['result'] == row['answers']    
-    '---'        
+            option
+#             row['result'][i] = st.selectbox('nolabel', 
+#                                              ['–––'].extend(option), 
+#                                              label_visibility="hidden")
+#             if row['result'][i] == '–––':
+#                 pass
+#             elif row['result'][i] == row['answers'][i]:
+#                 st.success('', icon="✅")
+#             else:
+#                 st.error('', icon="😟")
+#     row['total'] = row['result'] == row['answers']    
+#     '---'        
 
-total_sum = sum(task['total'] for task in tasks)
+# total_sum = sum(task['total'] for task in tasks)
 
-if total_sum == len(tasks):
-    st.success('Успех!')
-    st.balloons()
+# if total_sum == len(tasks):
+#     st.success('Успех!')
+#     st.balloons()
     
 
