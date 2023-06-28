@@ -21,7 +21,7 @@ st.header('Генератор упражнений по английскому')
 # st.write(df)
 
 for task in tasks:
-    task['description']
+    dict[task]['description']
     
 #     col1, col2 = st.columns(2)
 #     with col1:
