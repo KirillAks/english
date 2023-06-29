@@ -33,7 +33,7 @@ for i, row in tasks.iterrows():
         ) 
         if row['result'] == '–––':
             pass
-        elif row['result'] == row['answers']:
+        elif row['result'] == row['answer']:
             st.success('', icon="✅")
         else:
             st.error('', icon="😟")
@@ -55,7 +55,7 @@ for i, row in tasks.iterrows():
 #                 st.success('', icon="✅")
 #             else:
 #                 st.error('', icon="😟")
-    row['total'] = row['result'] == row['answers']    
+#     row['total'] = row['result'] == row['answer']    
     '---'        
 
 # total_sum = sum(task['total'] for task in tasks)
