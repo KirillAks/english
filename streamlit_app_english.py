@@ -23,12 +23,12 @@ for i, row in tasks.iterrows():
         st.write(str(row['raw']))
         
     with col2:
-        opt = (row['options']).translate({ord(i): None for i in "']["})
-        opt = opt.split(",")
+        option = (row['options']).translate({ord(i): None for i in "']["})
+        option = option.split(",")
 
         row['result'] = st.selectbox(
             'nolabel',
-            ['–––'] + opt,
+            ['–––'] + option,
             label_visibility="hidden",
         ) 
         if row['result'] == '–––':
@@ -37,24 +37,8 @@ for i, row in tasks.iterrows():
             st.success('', icon="✅")
         else:
             st.error('', icon="😟")
-    
-#         for i in range(len(opt)):
-#             o = opt[i]
-#             option = st.selectbox(
-#                 'nolabel',
-#                 ['–––'] + o,
-#                 label_visibility="hidden",
-#             )
-                       
-#              row['result'][i] = st.selectbox('nolabel', 
-#                                              ['–––'].extend(option), 
-#                                              label_visibility="hidden")
-#             if row['result'][i] == '–––':
-#                 pass
-#             elif row['result'][i] == row['answers'][i]:
-#                 st.success('', icon="✅")
-#             else:
-#                 st.error('', icon="😟")
+
+
 #     row['total'] = row['result'] == row['answer']    
     '---'        
 
