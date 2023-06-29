@@ -25,23 +25,21 @@ for i, row in tasks.iterrows():
     with col2:
         opt = []
         opt.append((row['options']).split(","))
-        option = st.selectbox(
-            'nolabel',
-            ['–––'] + opt,
-            label_visibility="hidden",
-        )
-    '---'
+#         option = st.selectbox(
+#             'nolabel',
+#             ['–––'] + opt,
+#             label_visibility="hidden",
+#         )
 
-#         for i in range(len(row['options'])):
-#             opt = row['options'][i]
-#             option = st.selectbox(
-#                 'nolabel',
-#                 (['None'].extend(opt)),
-#                 label_visibility="hidden",
-#             )
-            
-           
-#             row['result'][i] = st.selectbox('nolabel', 
+        for i in range(len(opt)):
+            o = opt[i]
+            option = st.selectbox(
+                'nolabel',
+                ['–––'] + o,
+                label_visibility="hidden",
+            )
+                       
+#              row['result'][i] = st.selectbox('nolabel', 
 #                                              ['–––'].extend(option), 
 #                                              label_visibility="hidden")
 #             if row['result'][i] == '–––':
@@ -51,7 +49,7 @@ for i, row in tasks.iterrows():
 #             else:
 #                 st.error('', icon="😟")
 #     row['total'] = row['result'] == row['answers']    
-#     '---'        
+    '---'        
 
 # total_sum = sum(task['total'] for task in tasks)
 
