@@ -25,6 +25,7 @@ for i, row in tasks.iterrows():
     with col2:
         option = (row['options']).translate({ord(i): None for i in "']["})
         option = option.split(",")
+        row['answer'] = row['answer'].split(",")
 
         row['result'] = st.selectbox(
             'nolabel',
