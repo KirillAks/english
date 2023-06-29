@@ -23,8 +23,9 @@ for i, row in tasks.iterrows():
         st.write(str(row['raw']))
         
     with col2:
-        opt = []
-        opt.append((row['options']).split(","))
+        opt = (row['options']).split(",")
+#         opt = []
+#         opt.append((row['options']).split(","))
 #         option = st.selectbox(
 #             'nolabel',
 #             ['–––'] + opt,
