@@ -23,10 +23,12 @@ for i, row in tasks.iterrows():
         st.write(str(row['raw']))
         
     with col2:
-                
+        empty = ['–––']
+        opt = (row['options']).split(",")
+        empty.extend(opt)
         option = st.selectbox(
             'nolabel',
-            ['–––'].extend((row['options']).split(",")),
+            empty,
             label_visibility="hidden",
         )
     '---'
@@ -57,5 +59,11 @@ for i, row in tasks.iterrows():
 # if total_sum == len(tasks):
 #     st.success('Успех!')
 #     st.balloons()
-    
+
+# f = []
+# empty = ['–––']
+# opt = ['raw', 'options', 'answer', 'description', 'result', 'total']
+# empty.extend(opt)
+# f.append(empty)
+# print(f)
 
