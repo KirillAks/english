@@ -25,21 +25,22 @@ for i, row in tasks.iterrows():
     with col2:
         opt = (row['options']).translate({ord(i): None for i in "']["})
         opt = opt.split(",")
+
 #         opt = []
 #         opt.append((row['options']).split(","))
-#         option = st.selectbox(
-#             'nolabel',
-#             ['–––'] + opt,
-#             label_visibility="hidden",
-#         )
+        option = st.selectbox(
+            'nolabel',
+            ['–––'] + opt,
+            label_visibility="hidden",
+        )
 
-        for i in range(len(opt)):
-            o = opt[i]
-            option = st.selectbox(
-                'nolabel',
-                ['–––'] + o,
-                label_visibility="hidden",
-            )
+#         for i in range(len(opt)):
+#             o = opt[i]
+#             option = st.selectbox(
+#                 'nolabel',
+#                 ['–––'] + o,
+#                 label_visibility="hidden",
+#             )
                        
 #              row['result'][i] = st.selectbox('nolabel', 
 #                                              ['–––'].extend(option), 
