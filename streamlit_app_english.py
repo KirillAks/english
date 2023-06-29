@@ -26,14 +26,18 @@ for i, row in tasks.iterrows():
         opt = (row['options']).translate({ord(i): None for i in "']["})
         opt = opt.split(",")
 
-#         opt = []
-#         opt.append((row['options']).split(","))
-        option = st.selectbox(
+        row['result'] = st.selectbox(
             'nolabel',
             ['–––'] + opt,
             label_visibility="hidden",
-        )
-
+        ) 
+        if row['result'] == '–––':
+            pass
+        elif row['result'] == row['answers']:
+            st.success('', icon="✅")
+        else:
+            st.error('', icon="😟")
+    
 #         for i in range(len(opt)):
 #             o = opt[i]
 #             option = st.selectbox(
@@ -51,7 +55,7 @@ for i, row in tasks.iterrows():
 #                 st.success('', icon="✅")
 #             else:
 #                 st.error('', icon="😟")
-#     row['total'] = row['result'] == row['answers']    
+    row['total'] = row['result'] == row['answers']    
     '---'        
 
 # total_sum = sum(task['total'] for task in tasks)
@@ -59,19 +63,4 @@ for i, row in tasks.iterrows():
 # if total_sum == len(tasks):
 #     st.success('Успех!')
 #     st.balloons()
-
-# f = []
-# empty = ['–––']
-# opt = ['raw', 'options', 'answer', 'description', 'result', 'total']
-# empty.extend(opt)
-# f.append(empty)
-# print(f)
-
-# f = []
-
-# opt = ['raw', 'options', 'answer', 'description', 'result', 'total']
-# empty = ['–––'] + opt
-# empty.extend(opt)
-# f.append(empty)
-# print(['–––'] + opt)
 
