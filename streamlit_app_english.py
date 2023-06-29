@@ -23,12 +23,12 @@ for i, row in tasks.iterrows():
         st.write(str(row['raw']))
         
     with col2:
-        empty = ['–––']
+#         empty = ['–––']
         opt = (row['options']).split(",")
-        empty.extend(opt)
+#         empty.extend(opt)
         option = st.selectbox(
             'nolabel',
-            empty,
+            ['–––'] + opt,
             label_visibility="hidden",
         )
     '---'
@@ -66,4 +66,12 @@ for i, row in tasks.iterrows():
 # empty.extend(opt)
 # f.append(empty)
 # print(f)
+
+# f = []
+
+# opt = ['raw', 'options', 'answer', 'description', 'result', 'total']
+# empty = ['–––'] + opt
+# empty.extend(opt)
+# f.append(empty)
+# print(['–––'] + opt)
 
