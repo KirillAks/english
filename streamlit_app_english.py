@@ -26,7 +26,7 @@ for i, row in tasks.iterrows():
                 
         option = st.selectbox(
             'nolabel',
-            list(row['options']),
+            (row['options']).split(","),
             label_visibility="hidden",
         )
     '---'
