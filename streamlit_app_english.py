@@ -24,8 +24,7 @@ for i, row in tasks.iterrows():
         
     with col2:
         option = (row['options']).translate({ord(i): None for i in "']["})
-        option = option.split(",")
-        row['answer'] = row['answer'].split(",")
+        option = option.split(",")        
 
         row['result'] = st.selectbox(
             'nolabel',
@@ -40,12 +39,12 @@ for i, row in tasks.iterrows():
             st.error('', icon="😟")
 
 
-#     row['total'] = row['result'] == row['answer']    
+    row['total'] = row['result'] == row['answer']    
     '---'        
 
-# total_sum = sum(task['total'] for task in tasks)
+total_sum = sum(task['total'] for task in tasks)
 
-# if total_sum == len(tasks):
-#     st.success('Успех!')
-#     st.balloons()
+if total_sum == len(tasks):
+    st.success('Успех!')
+    st.balloons()
 
