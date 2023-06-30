@@ -13,9 +13,9 @@ tasks
 st.header('Генератор упражнений по английскому')
 
 '---'
-
 for i, row in tasks.iterrows():
-    row['description']
+    st.subheader(row['description'])
+ 
     
     col1, col2 = st.columns(2)
     with col1:
