@@ -9,6 +9,8 @@ import streamlit as st
 
 tasks = pd.read_csv('little_red_cap.csv')
 tasks
+tasks['options'] = tasks.apply(lambda row: eval(row['options']), axis=1)
+tasks
 
 st.header('Генератор упражнений по английскому')
 
@@ -23,8 +25,9 @@ for i, row in tasks.iterrows():
         st.write(str(row['raw']))
         
     with col2:
-        option = (row['options']).translate({ord(i): None for i in "']["})
-        option = option.split(",")        
+        option = row['options']
+#         option = (row['options']).translate({ord(i): None for i in "']["})
+#         option = option.split(",")        
 
         row['result'] = st.selectbox(
             'nolabel',
