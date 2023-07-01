@@ -11,9 +11,10 @@ tasks = pd.read_csv('little_red_cap.csv')
 tasks
 tasks['options'] = tasks.apply(lambda row: eval(row['options']), axis=1)
 tasks['result'] = tasks.apply(lambda row: eval(row['result']), axis=1)
+tasks['answer'] = tasks.apply(lambda row: eval(row['answer']), axis=1)
 tasks
 
-st.header('Генератор упражнений по английскому')
+st.header('Упражнения по английскому')
 
 '---'
 for i, row in tasks.iterrows():
@@ -27,8 +28,6 @@ for i, row in tasks.iterrows():
         
     with col2:
         option = row['options']
-#         option = (row['options']).translate({ord(i): None for i in "']["})
-#         option = option.split(",")        
 
         row['result'] = st.selectbox(
             'nolabel',
@@ -43,12 +42,12 @@ for i, row in tasks.iterrows():
             st.error('', icon="😟")
 
 
-    row['total'] = row['result'] == row['answer']    
+#     row['total'] = row['result'] == row['answer']    
     '---'        
 
-total_sum = sum(task['total'] for task in tasks)
+# total_sum = sum(task['total'] for task in tasks)
 
-if total_sum == len(tasks):
-    st.success('Успех!')
-    st.balloons()
+# if total_sum == len(tasks):
+#     st.success('Поздравляем! Вы ответили на все вопросы!')
+#     st.balloons()
 
