@@ -42,12 +42,12 @@ for i, row in tasks.iterrows():
             st.error('', icon="😟")
 
 
-#     row['total'] = row['result'] == row['answer']    
+    row['total'] = row['result'] == row['answer']    
     '---'        
 
-# total_sum = sum(task['total'] for task in tasks)
+total_sum = sum(task['total'] for task in tasks)
 
-# if total_sum == len(tasks):
-#     st.success('Поздравляем! Вы ответили на все вопросы!')
-#     st.balloons()
+if total_sum == len(tasks):
+    st.success('Поздравляем! Вы ответили на все вопросы!')
+    st.balloons()
 
