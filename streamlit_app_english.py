@@ -45,7 +45,7 @@ for i, row in tasks.iterrows():
     row['total'] = row['result'] == row['answer']    
     '---'        
 
-total_sum = sum(task['total'] for task in tasks)
+total_sum = sum(row['total'] for task in tasks)
 
 if total_sum == len(tasks):
     st.success('Поздравляем! Вы ответили на все вопросы!')
