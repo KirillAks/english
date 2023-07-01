@@ -31,7 +31,7 @@ for i, row in tasks.iterrows():
         row['result'] = st.selectbox(
             'nolabel',
             ['–––'] + option,
-            key = "<uniquevalueofsomesort>",
+            key = f"{i}",
             label_visibility="hidden",            
         ) 
         if row['result'] == '–––':
