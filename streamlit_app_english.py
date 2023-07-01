@@ -10,6 +10,7 @@ import streamlit as st
 tasks = pd.read_csv('little_red_cap.csv')
 tasks
 tasks['options'] = tasks.apply(lambda row: eval(row['options']), axis=1)
+tasks['result'] = tasks.apply(lambda row: eval(row['result']), axis=1)
 tasks
 
 st.header('Генератор упражнений по английскому')
