@@ -32,7 +32,7 @@ for i, row in tasks.iterrows():
             'nolabel',
             ['–––'] + option,
             label_visibility="hidden",
-        ) 
+            key = "<uniquevalueofsomesort>") 
         if row['result'] == '–––':
             pass
         elif row['result'] == row['answer']:
