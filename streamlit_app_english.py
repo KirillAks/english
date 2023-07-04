@@ -41,10 +41,10 @@ for i, row in tasks.iterrows():
         else:
             st.error('Mistake', icon="🤷‍♂️")
     
-#     if row['result'] == row['answer']:
-#         tasks['total'] = 1      
+    if row['result'] == row['answer']:
+        row['total'] = 1      
     '---'
-    row['total'] = row['result'] == row['answers']
+#     row['total'] = row['result'] == row['answers']
     total_sum = sum(row['total'])
     if total_sum == len(tasks):
         st.success('Поздравляем! Вы ответили на все вопросы!')
