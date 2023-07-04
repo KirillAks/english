@@ -8,8 +8,9 @@ import pandas as pd
 import streamlit as st
 
 st.header('Прочитай текст и ответь на вопрос')
-text = pd.read_csv('Little_Red_Cap_ Jacob_and_Wilhelm_Grimm.txt')
-text
+with open('Little_Red_Cap_ Jacob_and_Wilhelm_Grimm.txt') as f:
+    st.download_button('Download CSV', f)
+
 
 tasks = pd.read_csv('little_red_cap.csv')
 tasks['options'] = tasks.apply(lambda row: eval(row['options']), axis=1)
