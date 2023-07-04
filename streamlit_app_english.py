@@ -37,17 +37,22 @@ for i, row in tasks.iterrows():
         if row['result'] == '–––':
             pass
         elif row['result'] == row['answer']:
-            st.success('', icon="✅")
+            st.success('Correctly', icon="💪")
         else:
-            st.error('', icon="😟")
-
-    if row['result'] == row['answer']:
-        tasks['total'] = 1      
-    '---'        
-
-total_sum = sum(tasks['total'])
-
-if total_sum == len(tasks):
+            st.error('Mistake', icon="🤷‍♂️")
+    
+#     if row['result'] == row['answer']:
+#         tasks['total'] = 1      
+    '---'
+    row['total'] = row['result'] == row['answers']
+    total_sum = sum(row['total'])
+    if total_sum == len(tasks):
     st.success('Поздравляем! Вы ответили на все вопросы!')
     st.balloons()
+
+# total_sum = sum(tasks['total'])
+
+# if total_sum == len(tasks):
+#     st.success('Поздравляем! Вы ответили на все вопросы!')
+#     st.balloons()
 
