@@ -22,8 +22,16 @@ for i, row in tasks.iterrows():
     
     col1, col2 = st.columns(2)
     with col1:
-        st.write('')
-        st.write(str(row['raw']))
+         if row['type']=='select_word' or row['type']=='missing_word':
+                st.write('')
+                st.write(str.replace(row['raw'], row['object'], '___'))
+                
+        elif row['type']=='noun_phrases':
+            st.write('')
+            st.write(str.replace(row['raw'], row['object'], "\033[34m{}".format(row['object'])))
+
+#         st.write('')
+#         st.write(str(row['raw']))
         
     with col2:
         option = row['options']
@@ -45,10 +53,10 @@ for i, row in tasks.iterrows():
         row['total'] = 1      
     '---'
 #     row['total'] = row['result'] == row['answers']
-    total_sum = sum(row['total'])
-    if total_sum == len(tasks):
-        st.success('Поздравляем! Вы ответили на все вопросы!')
-        st.balloons()
+#     total_sum = sum(row['total'])
+#     if total_sum == len(tasks):
+#         st.success('Поздравляем! Вы ответили на все вопросы!')
+#         st.balloons()
 
 # total_sum = sum(tasks['total'])
 
