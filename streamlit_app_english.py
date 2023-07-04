@@ -6,13 +6,15 @@
 
 import pandas as pd
 import streamlit as st
+from io import StringIO
 
 st.header('Прочитай текст и ответь на вопрос')
-uploaded_file = st.file_uploader("Choose a file")
+
+uploaded_file = st.file_uploader("Выбери файл")
 if uploaded_file is not None:
-    # To read file as bytes:
-    bytes_data = uploaded_file.getvalue()
-    st.write(bytes_data)
+    
+    stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
+    st.write(stringio)
 
 
 tasks = pd.read_csv('little_red_cap.csv')
