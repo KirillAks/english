@@ -8,8 +8,11 @@ import pandas as pd
 import streamlit as st
 
 st.header('Прочитай текст и ответь на вопрос')
-with open('Little_Red_Cap_ Jacob_and_Wilhelm_Grimm.txt') as f:
-    st.download_button('Download CSV', f)
+uploaded_file = st.file_uploader("Choose a file")
+if uploaded_file is not None:
+    # To read file as bytes:
+    bytes_data = uploaded_file.getvalue()
+    st.write(bytes_data)
 
 
 tasks = pd.read_csv('little_red_cap.csv')
