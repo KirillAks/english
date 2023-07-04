@@ -22,12 +22,15 @@ for i, row in tasks.iterrows():
     
     col1, col2 = st.columns(2)
     with col1:
-        if row['description']=='Выберите слово':
+        if row['type']=='select_word' or row['type']=='missing_word':
             st.write('')
             st.write(str.replace(row['raw'], row['object'], '___'))    
-        elif row['description']=='Чем является фраза?':
+        elif row['type']=='noun_phrases':
             st.write('')
             st.write(str.replace(row['raw'], row['object'], "\033[34m{}".format(row['object'])))
+        elif row['type']=='select_sent':
+            st.write('')
+            st.write('Вспомни текст и выбери предложение')
 
 #         st.write('')
 #         st.write(str(row['raw']))
