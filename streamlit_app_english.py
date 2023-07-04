@@ -22,10 +22,10 @@ for i, row in tasks.iterrows():
     
     col1, col2 = st.columns(2)
     with col1:
-        if row['type']=='select_word' or row['type']=='missing_word':
+        if row['description']=='Выберите слово':
             st.write('')
             st.write(str.replace(row['raw'], row['object'], '___'))    
-        elif row['type']=='noun_phrases':
+        elif row['description']=='Чем является фраза?':
             st.write('')
             st.write(str.replace(row['raw'], row['object'], "\033[34m{}".format(row['object'])))
 
