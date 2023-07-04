@@ -12,6 +12,7 @@ st.header('Прочитай текст и ответь на вопрос')
 
 uploaded_file = st.file_uploader("Выбери файл")
 if uploaded_file is not None:
+    stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
     string_data = stringio.read()
     st.write(string_data)
 
