@@ -47,8 +47,8 @@ for i, row in tasks.iterrows():
     row['total'] = row['result'] == row['answers']
     total_sum = sum(row['total'])
     if total_sum == len(tasks):
-    st.success('Поздравляем! Вы ответили на все вопросы!')
-    st.balloons()
+        st.success('Поздравляем! Вы ответили на все вопросы!')
+        st.balloons()
 
 # total_sum = sum(tasks['total'])
 
