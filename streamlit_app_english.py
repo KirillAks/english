@@ -7,11 +7,13 @@
 import pandas as pd
 import streamlit as st
 
+st.header('Прочитай текст и ответь на вопрос')
+text = pd.read_csv('Little_Red_Cap_ Jacob_and_Wilhelm_Grimm.txt')
+text
+
 tasks = pd.read_csv('little_red_cap.csv')
-tasks
 tasks['options'] = tasks.apply(lambda row: eval(row['options']), axis=1)
 tasks['result'] = tasks.apply(lambda row: eval(row['result']), axis=1)
-tasks
 
 st.header('Упражнения по английскому')
 
@@ -27,7 +29,7 @@ for i, row in tasks.iterrows():
             st.write(str.replace(row['raw'], row['object'], '___'))    
         elif row['type']=='noun_phrases':
             st.write('')
-            st.write(str.replace(row['raw'], row['object'], "\033[34m{}".format(row['object'])))
+            st.write(row['object'])
         elif row['type']=='select_sent':
             st.write('')
             st.write('Вспомни текст и выбери предложение')
