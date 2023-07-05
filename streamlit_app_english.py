@@ -10,7 +10,7 @@ from io import StringIO
 
 st.header('Прочитайте текст и выполните упражнения')
 
-uploaded_file = st.file_uploader("Выбери файл и загрузи текст:")
+uploaded_file = st.file_uploader("Выберите и загрузите файл с текстом:")
 if uploaded_file is not None:
     stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
     string_data = stringio.read()
@@ -28,7 +28,7 @@ for i, row in tasks.iterrows():
     
     col1, col2 = st.columns(2)
     with col1:
-        if row['type']=='select_word' or row['type']=='missing_word':
+        if row['type'] in ['select_word', 'select_conjunction', 'missing_determiner', 'missing_word']:
             st.write('')
             st.write(str.replace(row['raw'], row['object'], '___'))    
         elif row['type']=='noun_phrases':
@@ -36,13 +36,13 @@ for i, row in tasks.iterrows():
             st.write(row['object'])
         elif row['type']=='select_sent':
             st.write('')
-            st.write('Вспомни текст и выбери предложение')
+            st.write('Вспомните текст и выберите предложение')
         
     with col2:
         option = row['options']
-        if row['type']=='missing_word':
+        if row['type']=='missing_word' or row['type']=='missing_determiner':
             text = '–––' 
-            row['result'] = st.text_area("Напишите ответ:", text, height=50)
+            row['result'] = st.text_area("Напишите ответ:", text)
         else:
             row['result'] = st.selectbox(
                 'nolabel',
@@ -58,17 +58,18 @@ for i, row in tasks.iterrows():
             st.error('Mistake', icon="🤷‍♂️")
     
     if row['result'] == row['answer']:
-        row['total'] = 1      
+        row['total'] += 1      
     '---'
+    tasks['total'] = row['total']
 #     row['total'] = row['result'] == row['answers']
 #     total_sum = sum(row['total'])
 #     if total_sum == len(tasks):
 #         st.success('Поздравляем! Вы ответили на все вопросы!')
 #         st.balloons()
 
-# total_sum = sum(tasks['total'])
+total_sum = sum(tasks['total'])
 
-# if total_sum == len(tasks):
-#     st.success('Поздравляем! Вы ответили на все вопросы!')
-#     st.balloons()
+if total_sum == len(tasks):
+    st.success('Поздравляем! Вы ответили на все вопросы!')
+    st.balloons()
 
