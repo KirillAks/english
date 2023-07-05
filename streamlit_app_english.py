@@ -42,7 +42,7 @@ for i, row in tasks.iterrows():
         option = row['options']
         if row['type']=='missing_word' or row['type']=='missing_determiner':
             text = '–––' 
-            row['result'] = st.text_area("Напишите ответ:", key = f"{i}", text)
+            row['result'] = st.text_area("Напишите ответ:", text, key=f"{i+20}")
         else:
             row['result'] = st.selectbox(
                 'nolabel',
