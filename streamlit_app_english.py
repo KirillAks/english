@@ -61,7 +61,7 @@ for i, row in tasks.iterrows():
 #         row['total'] += 1      
     '---'
 #     tasks['total'] = row['total']
-    tasks['total'] = row['result'] == row['answers']
+    tasks['total'] = row['result'] == row['answer']
 
 total_sum = sum(tasks['total'])
 
