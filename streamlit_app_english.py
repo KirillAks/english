@@ -8,9 +8,9 @@ import pandas as pd
 import streamlit as st
 from io import StringIO
 
-st.header('Прочитай текст и ответь на вопрос')
+st.header('Прочитайте текст и выполните упражнения')
 
-uploaded_file = st.file_uploader("Выбери файл")
+uploaded_file = st.file_uploader("Выбери файл и загрузи текст:")
 if uploaded_file is not None:
     stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
     string_data = stringio.read()
@@ -20,13 +20,11 @@ if uploaded_file is not None:
 tasks = pd.read_csv('little_red_cap.csv')
 tasks['options'] = tasks.apply(lambda row: eval(row['options']), axis=1)
 tasks['result'] = tasks.apply(lambda row: eval(row['result']), axis=1)
-
+'---'
 st.header('Упражнения по английскому')
-
 '---'
 for i, row in tasks.iterrows():
-    st.subheader(row['description'])
- 
+    st.subheader(row['description']) 
     
     col1, col2 = st.columns(2)
     with col1:
@@ -39,14 +37,12 @@ for i, row in tasks.iterrows():
         elif row['type']=='select_sent':
             st.write('')
             st.write('Вспомни текст и выбери предложение')
-
-#         st.write('')
-#         st.write(str(row['raw']))
         
     with col2:
         option = row['options']
         if row['type']=='missing_word':
-            row['result'] = st.text_area("Введите ответ: ")
+            text = '–––' 
+            row['result'] = st.text_area("Напишите ответ:", text, height=50)
         else:
             row['result'] = st.selectbox(
                 'nolabel',
