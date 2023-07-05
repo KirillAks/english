@@ -57,15 +57,11 @@ for i, row in tasks.iterrows():
         else:
             st.error('Mistake', icon="🤷‍♂️")
     
-    if row['result'] == row['answer']:
-        row['total'] += 1      
+#     if row['result'] == row['answer']:
+#         row['total'] += 1      
     '---'
-    tasks['total'] = row['total']
-#     row['total'] = row['result'] == row['answers']
-#     total_sum = sum(row['total'])
-#     if total_sum == len(tasks):
-#         st.success('Поздравляем! Вы ответили на все вопросы!')
-#         st.balloons()
+#     tasks['total'] = row['total']
+    tasks['total'] = row['result'] == row['answers']
 
 total_sum = sum(tasks['total'])
 
