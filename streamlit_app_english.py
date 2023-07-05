@@ -45,13 +45,15 @@ for i, row in tasks.iterrows():
         
     with col2:
         option = row['options']
-
-        row['result'] = st.selectbox(
-            'nolabel',
-            ['–––'] + option,
-            key = f"{i}",
-            label_visibility="hidden",            
-        ) 
+        if row['type']=='missing_word':
+            row['result'] = st.text_area("Введите ответ: ")
+        else:
+            row['result'] = st.selectbox(
+                'nolabel',
+                ['–––'] + option,
+                key = f"{i}",
+                label_visibility="hidden",
+            ) 
         if row['result'] == '–––':
             pass
         elif row['result'] == row['answer']:
